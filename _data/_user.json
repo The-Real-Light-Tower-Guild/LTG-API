@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "5d7a514b5d2c12c7449be042",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Admin Account",
+    "email": "admin@gmail.com",
+    "role": "admin",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be043",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Student Account",
+    "email": "student@gmail.com",
+    "role": "student",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be044",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "User Account",
+    "email": "user@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be045",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "role": "student",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be046",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Kevin Smith",
+    "email": "kevin@gmail.com",
+    "role": "student",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc031",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Mary Williams",
+    "email": "mary@gmail.com",
+    "role": "student",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc032",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Sasha Ryan",
+    "email": "sasha@gmail.com",
+    "role": "student",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc033",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Greg Harris",
+    "email": "greg@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc034",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Derek Glover",
+    "email": "derek@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc035",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Stephanie Hanson",
+    "email": "steph@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc036",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Jerry Wiliams",
+    "email": "jerry@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc037",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Maggie Johnson",
+    "email": "maggie@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc038",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Barry Dickens",
+    "email": "barry@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc039",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Ryan Bolin",
+    "email": "ryan@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5c8a1d5b0190b214360dc040",
+    "photo":"https://avatars.dicebear.com/4.5/api/jdenticon/Admin.svg",
+    "name": "Sara Kensing",
+    "email": "sara@gmail.com",
+    "role": "user",
+    "password": "123456"
+  }
+]
