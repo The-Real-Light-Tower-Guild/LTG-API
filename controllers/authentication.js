@@ -8,8 +8,6 @@ const User = require('../models/User')
 //@access Public
 exports.register = handleAsync(async (req, res, next) => {
     const { name, email, password, role } = req.body
-    const myname = name.split(' ')[0]
-    avatar = `https://avatars.dicebear.com/4.5/api/jdenticon/${myname}.svg`
 
     const user = await User.create({
         name, 
