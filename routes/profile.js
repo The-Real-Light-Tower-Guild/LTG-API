@@ -16,7 +16,7 @@ router
 
 router
     .route('/skills/:id')
-    .put(updateSkills)
+    .put(protect, updateSkills)
 
 router
     .route('/create')
@@ -28,7 +28,7 @@ router
     
 router
     .route('/:id')
-    .put(updateProfile)
+    .put(protect, updateProfile)
 
 router
     .route('/')
