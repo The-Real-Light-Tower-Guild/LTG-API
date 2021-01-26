@@ -12,7 +12,6 @@ const fileupload = require('express-fileupload')
 const connectDB = require('./config/database')
 const handleErrors = require('./middleware/error')
 dotenv.config({ path: './config/config.env'})
-//const fileupload = require('express-fileupload')
 
 app.use(cookieParser())
 //Secure the routes 
@@ -36,7 +35,6 @@ app.use(hpp());
 app.use(limiter)
 app.use(cors())
 app.use(fileupload())
-app.use(express.static(path.join(__dirname, 'public')))
 
 
 //@test Logging routes to compare to API Call
@@ -45,10 +43,13 @@ if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
 }
 
+
 //Getting router from the file routes
 const auth = require('./routes/authentication')
+const profile = require('./routes/profile')
 
 app.use('/api/v1/auth', auth)
+app.use('/api/v1/profile', profile)
 
 
 //Sends the error back in json format
@@ -56,7 +57,6 @@ app.use(handleErrors)
 
 connectDB();
 const PORT = process.env.PORT || 5000
-
 
 
 //If the route is not a valid route 
