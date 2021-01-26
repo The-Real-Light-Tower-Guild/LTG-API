@@ -8,19 +8,15 @@ const User = require('../models/User')
 //@access Public
 exports.register = handleAsync(async (req, res, next) => {
     const { name, email, password, role } = req.body
-    const myname = name.split(' ')[0]
-    avatar = `https://avatars.dicebear.com/4.5/api/jdenticon/${myname}.svg`
 
     const user = await User.create({
         name, 
         email, 
-        photo: avatar,
         password, 
         role
     })
 
     sendTokenResponse(user, 200, res)
-
 })
 
 
@@ -66,18 +62,17 @@ exports.getUser = handleAsync(async (req, res, next) => {
 // @route  PUT /api/v1/auth/updatedetails
 // @access Private
 exports.updateUser = async (req, res, next) => {
-  
+ 
   const user = await User.findByIdAndUpdate(req.user.id, req.body, {
     new: true,
     runValidators: true
   })
 
-    res.status(200).json({
-        success: true,
-        data: user
-    });
+  res.status(200).json({
+    success: true,
+    data: user
+  })
 }
-
 
 // @desc   Log User Out
 // @route  GET /api/v1/auth/logout

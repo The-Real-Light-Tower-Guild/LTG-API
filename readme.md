@@ -23,7 +23,10 @@ JWT_SECRET can be changed to whatever you wish
 ```
     npm install 
 ```
-
+## Run Server
+```
+    npm run dev
+```
 ## Seed Database
 Load database with test data 
 ```

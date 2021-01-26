@@ -1,10 +1,17 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true });
 
 
 const { register, login, getUser, logout, updateUser } = require('../controllers/authentication')
 
 const { protect } = require('../middleware/authentication')
+
+
+// Include other resource routers
+const profileRouter = require('./profile')
+
+// Re-route into other resource routers
+router.use('/:id/profile', profileRouter)
 
 //Get Request
 router.get('/user',protect, getUser)
