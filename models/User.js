@@ -16,13 +16,9 @@ const UserSchema = new mongoose.Schema(
             match: [ /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please add a valid email',
         ],
         },
-        photo: {
-            type: String,
-            default: 'no-photo.jpg'
-        },
         role: {
             type: String,
-            enum: ['user', 'student', 'admin'],
+            enum: ['student', 'admin'],
             default: 'user'
         },
         password: {
@@ -35,7 +31,11 @@ const UserSchema = new mongoose.Schema(
             type: Date,
             default:Date.now
         }
-    }
+    },
+    {
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+   }
 )
 
 //Middleware to handle the password START
@@ -57,5 +57,19 @@ UserSchema.methods.matchPassword = async function(enteredPassword){
     return await bcrypt.compare(enteredPassword, this.password)
 }
 
+// When a user is deleted, it will also delete profile
+UserSchema.pre('remove', async function(next){
+    await this.model('Profile').deleteMany({user: this._id});
+    next();
+})
 //Middleware to handle the password END
+
+//Reverse populate with virtual
+UserSchema.virtual('profiles', {
+    ref: 'Profile',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+})
+
 module.exports = mongoose.model('User', UserSchema)
