@@ -136,7 +136,7 @@ exports.updateSkills = handleAsync(async (req, res, next) => {
 
 // @desc      Get single profile
 // @route     GET /api/v1/profile/
-// @access    Public
+// @access    Private
 exports.getProfile = handleAsync( async (req, res, next) => {
     console.log(req.user.id)
 
