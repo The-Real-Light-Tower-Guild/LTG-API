@@ -15,6 +15,7 @@ exports.getUsers = handleAsync( async (req, res, next) => {
     
     res.status(200).json({
         success: true,
+        count: users.length,
         data: users
     })
 })
@@ -45,14 +46,16 @@ exports.createProfile = handleAsync(async (req, res, next) => {
 // @access    Private
 exports.profilePhotoUpload = handleAsync(async (req, res, next) => {
     const image = req.files.file
-    //console.log(image)
     let profile = await Profile.findById(req.params.id)
 
     if(!profile){
         return next(new ErrorResponse(`User not found with id of ${req.params.id}`, 404));
     }
-    //deletes the avatar that was store before hand
-    await cloudinary.uploader.destroy(profile.cloudinary_id);
+
+    //if there is a avatar than delete the avatar that was store before hand
+    if(profile.cloudinary_id){
+       await cloudinary.uploader.destroy(profile.cloudinary_id);
+    }
 
     if(!image.mimetype.startsWith('image')){
         return next(new ErrorResponse(`${image.name} is not an image`, 404))
@@ -119,7 +122,6 @@ exports.updateSkills = handleAsync(async (req, res, next) => {
     let skills = req.body.skills
     const skillsFields = {}
     skillsFields.skills = skills.split(',').map(skill => skill.trim());
-    console.log(skillsFields.skills)
 
     updateSkills = await Profile.findByIdAndUpdate(req.params.id, { $push: skillsFields }
         ,{
@@ -138,7 +140,6 @@ exports.updateSkills = handleAsync(async (req, res, next) => {
 // @route     GET /api/v1/profile/
 // @access    Private
 exports.getProfile = handleAsync( async (req, res, next) => {
-    console.log(req.user.id)
 
     const user = await User.findById(req.user.id).populate('profiles')
     res.status(200).json({
