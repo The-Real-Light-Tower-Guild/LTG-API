@@ -46,6 +46,7 @@ exports.createProfile = handleAsync(async (req, res, next) => {
 // @access    Private
 exports.profilePhotoUpload = handleAsync(async (req, res, next) => {
     const image = req.files.file
+    // const image = req.files.file
     let profile = await Profile.findById(req.params.id)
 
     if(!profile){
