@@ -27,7 +27,7 @@ exports.getUsers = handleAsync( async (req, res, next) => {
 exports.createProfile = handleAsync(async (req, res, next) => {
     const userID = req.user.id
     req.body.user = req.user.id
-
+    
     const user = await User.findById(userID)
     if(!user){
         return next(new ErrorResponse(`No user with id ${userID}`))
