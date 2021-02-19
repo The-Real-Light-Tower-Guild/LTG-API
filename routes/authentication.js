@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router({ mergeParams: true });
 
 
-const { register, login, getUser, logout, updateUser } = require('../controllers/authentication')
+const { register, login, getUser, logout, updateUser, updatePassword } = require('../controllers/authentication')
 
 const { protect } = require('../middleware/authentication')
 
@@ -22,7 +22,9 @@ router.post('/register', register)
 router.post('/login', login)
 
 //Put request
-router.put('/update', protect, updateUser)
+router.put('/updateuser', protect, updateUser)
+
+router.put('/updatepassword', protect, updatePassword)
 
 
 
