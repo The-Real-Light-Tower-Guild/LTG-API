@@ -36,20 +36,16 @@ app.use(limiter)
 app.use(cors())
 app.use(fileupload())
 
-
-//@test Logging routes to compare to API Call
-dotenv.config({ path: './config/config.env'})
-if(process.env.NODE_ENV === 'development'){
-    app.use(morgan('dev'))
-}
-
-
 //Getting router from the file routes
 const auth = require('./routes/authentication')
+const user = require('./routes/user');
 const profile = require('./routes/profile')
+const project = require('./routes/project')
 
 app.use('/api/v1/auth', auth)
+app.use('/api/v1/users', user);
 app.use('/api/v1/profile', profile)
+app.use('/api/v1/project', project)
 
 
 //Sends the error back in json format
@@ -67,10 +63,13 @@ app.get('*', (req, res) => {
     })
 });
 
+//@test Logging routes to compare to API Call
+dotenv.config({ path: './config/config.env'})
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
 
 const server = app.listen(PORT, console.log(`> Server running in ${process.env.NODE_ENV}: http://localhost:${PORT}`.brightBlue.bold))
-
-
 
 //Handle Rejection
 process.on('unhandledRejection', (err, promise) => {
