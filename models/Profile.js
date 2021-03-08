@@ -48,6 +48,9 @@ const ProfileSchema = new mongoose.Schema({
     }
 )
 
+//prevent user from createing more than on profile
+ProfileSchema.index({profile: 1, user: 1}, {unique: true})
+
 //Set the default image
 ProfileSchema.pre('save', async function(next){
     this.photo = `https://avatars.dicebear.com/4.5/api/jdenticon/${this.user}.svg`
@@ -60,12 +63,12 @@ ProfileSchema.pre('remove', async function(next){
 })
 
 //Reverse populate with virtual
-// ProfileSchema.virtual('projects', {
-//     ref: 'Projects',
-//     localField: '_id',
-//     foreignField: 'profile',
-//     justOne: false
-// })
+ProfileSchema.virtual('projects', {
+    ref: 'Projects',
+    localField: '_id',
+    foreignField: 'profile',
+    justOne: false
+})
 
 
 
